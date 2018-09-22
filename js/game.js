@@ -26,6 +26,11 @@ gameScene.preload = function () {
         frameHeight: 32,
     });
 
+    this.load.spritesheet('antFlag', 'assets/animations/antdentifier.png', {
+        frameWidth: 32,
+        frameHeight: 64,
+    });
+
 }
 
 //called once after preload
@@ -48,8 +53,8 @@ gameScene.create = function () {
     this.science.setScale(4.5)
 
     // create the flag
-    let antFlag = this.add.sprite(600, 180, 'player').setInteractive();
-    antFlag.setScale(1)
+    let antFlag = this.add.sprite(578, 160, 'antFlag', 0).setInteractive();
+    antFlag.setScale(4)
     // event listener for flag
     antFlag.on('pointerdown', this.placeAnts, this);
 
@@ -78,6 +83,27 @@ gameScene.create = function () {
         yoyo: true,
     });
 
+    this.anims.create({
+        key: 'antFlag',
+        frames: this.anims.generateFrameNames('antFlag', {
+            frames: [0, 1, 2, 3]
+        }),
+        frameRate: 6,
+        yoyo: true,
+        repeat:-1,
+    });
+
+    //listen to pointerover
+    antFlag.on('pointerover', function (pointer) {
+        antFlag.anims.play('antFlag');
+          })
+  
+      antFlag.on('pointerout', function (pointer) {
+        antFlag.anims.stop('antFlag');
+      }, this);
+
+    
+
 
 }
 
@@ -93,13 +119,11 @@ gameScene.update = function () {
                 this.convey.stop();
             }
         }
-
-    }
-}
+    };
+};
 
 gameScene.placeAnts = function (pointer, localX, localY) {
     this.flag = 'ants'
-
     gameScene.placeObjects()
 }
 
@@ -109,87 +133,87 @@ gameScene.placeNC = function (pointer, localX, localY) {
 }
 
 gameScene.placeObjects = function (pointer, localX, localY) {
-    if(this.current === 'none') {
-    this.science.anims.play('lever');
+    if (this.current === 'none') {
+        this.science.anims.play('lever');
     }
 
-setTimeout(() => {
-    // create a new item in position
-    if (this.flag === 'ants' && this.current === 'none') {
-        this.antdentifier = this.add.group([
-            {
-                key: 'antFS',
-                setXY:
+    setTimeout(() => {
+        // create a new item in position
+        if (this.flag === 'ants' && this.current === 'none') {
+            this.antdentifier = this.add.group([
                 {
-                    x: -600,
-                    y: 850
-                }
-            },
-            {
-                key: 'antPhone',
-                setXY:
+                    key: 'antFS',
+                    setXY:
+                    {
+                        x: -600,
+                        y: 850
+                    }
+                },
                 {
-                    x: -100,
-                    y: 850
+                    key: 'antPhone',
+                    setXY:
+                    {
+                        x: -100,
+                        y: 850
+                    }
                 }
-            }
-        ]);
-        this.current = this.antdentifier
-        this.convey.play();
-    }
+            ]);
+            this.current = this.antdentifier
+            this.convey.play();
+        }
 
-    else if (this.flag === 'NC' && this.current === 'none') {
-        
-        this.northcoders = this.add.group([
-            {
-                key: 'player',
-                setXY:
+        else if (this.flag === 'NC' && this.current === 'none') {
+
+            this.northcoders = this.add.group([
                 {
-                    x: -600,
-                    y: 850
-                }
-            },
-            {
-                key: 'player',
-                setXY:
+                    key: 'player',
+                    setXY:
+                    {
+                        x: -600,
+                        y: 850
+                    }
+                },
                 {
-                    x: -100,
-                    y: 850
+                    key: 'player',
+                    setXY:
+                    {
+                        x: -100,
+                        y: 850
+                    }
                 }
-            }
-        ]);
-        
-        this.current = this.northcoders
-        this.convey.play();
-    }
+            ]);
 
-    else if (this.current !== 'none') {
-        // play animation
-        this.science.anims.play('button');
+            this.current = this.northcoders
+            this.convey.play();
+        }
 
-        setTimeout(() => {
-            this.current.clear([this.current.getChildren()])
-            this.current = 'none'
-            // shake
-            this.cameras.main.flash(500, 0, 50, 50);
-
-            // play sound
-            this.convey.stop();
-            this.elec.play();
-
+        else if (this.current !== 'none') {
+            // play animation
+            this.science.anims.play('button');
 
             setTimeout(() => {
-                if (this.flag === 'ants') {
-                    this.placeAnts()
-                }
-                else if (this.flag === 'NC') {
-                    this.placeNC()
-                }
-            }, 800);
-        }, 600);
+                this.current.clear([this.current.getChildren()])
+                this.current = 'none'
+                // shake
+                this.cameras.main.flash(500, 0, 50, 50);
 
-    }
-}, 200);
+                // play sound
+                this.convey.stop();
+                this.elec.play();
+
+
+                setTimeout(() => {
+                    if (this.flag === 'ants') {
+                        this.placeAnts()
+                    }
+                    else if (this.flag === 'NC') {
+                        this.placeNC()
+                    }
+                }, 800);
+            }, 600);
+
+        }
+    }, 200);
 }
 
 //set config
