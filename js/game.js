@@ -36,8 +36,8 @@ gameScene.preload = function () {
 //called once after preload
 gameScene.create = function () {
     // create sounds
-    this.elec = this.sound.add('elec', {volume:0.6});
-    this.convey = this.sound.add('convey', {volume:0.4});
+    this.elec = this.sound.add('elec', {volume:0.4});
+    this.convey = this.sound.add('convey', {volume:0.2});
     //BG music
     this.BGmusic = this.sound.add('BGmusic', {volume:0.1,loop:true});
 
