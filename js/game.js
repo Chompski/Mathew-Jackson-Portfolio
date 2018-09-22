@@ -3,7 +3,8 @@ let gameScene = new Phaser.Scene('Game');
 
 // initisate scene params
 gameScene.init = function () {
-this.current = 'none'
+    this.current = 'none'
+    this.flag = undefined
 }
 
 // Load assets
@@ -14,72 +15,136 @@ gameScene.preload = function () {
     this.load.image('antFS', 'assets/AntdentifierFS.png');
     this.load.image('antPhone', 'assets/antPhone.png');
 
+    // load audio
+    this.load.audio('elec', 'assets/audio/Electricity.mp3');
+    this.load.audio('convey', 'assets/audio/convey.mp3');
+    this.load.audio('machoff', 'assets/audio/MachineOff.mp3');
+
 
 
 }
 
 //called once after preload
 gameScene.create = function () {
-    // create antdentifier
-
+    this.elec = this.sound.add('elec');
+    this.convey = this.sound.add('convey');
+    this.machoff = this.sound.add('machoff');
 
     //create bg sprite
     let bg = this.add.sprite(0, 0, 'bg')
     //change origin to top left corner
     bg.setOrigin(0, 0)
 
-    // create the player
-    let flag = this.add.sprite(600, 180, 'player').setInteractive();
-    flag.setScale(1)
-
+    // create the flag
+    let antFlag = this.add.sprite(600, 180, 'player').setInteractive();
+    antFlag.setScale(1)
     // event listener for flag
-    flag.on('pointerdown', this.placeItem, this)
+    antFlag.on('pointerdown', this.placeAnts, this);
+
+    // create the flag
+    let ncFlag = this.add.sprite(800, 180, 'player').setInteractive();
+    ncFlag.setScale(1)
+    // event listener for flag
+    ncFlag.on('pointerdown', this.placeNC, this);
+
 
 }
 
 // this is called up to 60 times per second
 gameScene.update = function () {
-    // console.log(this.current)
-    if (this.current === 'ants'){
-        for (let i = 0; i < this.ants.length; i++) {
-         this.ants[i].x += 2;
+    // make group move
+    if (this.current !== 'none') {
+        for (let i = 0; i < this.current.getChildren().length; i++) {
+            if (this.current.getChildren()[1].x < this.sys.game.config.width - 400) {
+                this.current.getChildren()[i].x += 5;
+            }
+            else {
+                this.convey.stop();
+            }
         }
 
-    // console.log(this.ants)
-     }
+    }
 }
 
-gameScene.placeItem = function (pointer, localX, localY) {
+gameScene.placeAnts = function (pointer, localX, localY) {
+    this.flag = 'ants'
+    gameScene.placeObjects()
+}
+
+gameScene.placeNC = function (pointer, localX, localY) {
+    this.flag = 'NC'
+    gameScene.placeObjects()
+}
+
+gameScene.placeObjects = function (pointer, localX, localY) {
 
     // create a new item in position
-    // let newItem = this.add.sprite(600, 500, 'antFS');
-
-    this.antdentifier = this.add.group([
-        {
-            key: 'antFS',
-            setXY:
+    if (this.flag === 'ants' && this.current === 'none') {
+        this.antdentifier = this.add.group([
             {
-                x: -600,
-                y: 850
-            }
-        },
-        {
-            key: 'antPhone',
-            setXY:
+                key: 'antFS',
+                setXY:
+                {
+                    x: -600,
+                    y: 850
+                }
+            },
             {
-                x: -100,
-                y: 850
+                key: 'antPhone',
+                setXY:
+                {
+                    x: -100,
+                    y: 850
+                }
             }
-        }
-    ]);
+        ]);
+        this.current = this.antdentifier
+        this.convey.play();
+    }
 
-    this.ants = this.antdentifier.getChildren();
-    this.current = 'ants'
+    else if (this.flag === 'NC' && this.current === 'none') {
+        this.northcoders = this.add.group([
+            {
+                key: 'player',
+                setXY:
+                {
+                    x: -600,
+                    y: 850
+                }
+            },
+            {
+                key: 'player',
+                setXY:
+                {
+                    x: -100,
+                    y: 850
+                }
+            }
+        ]);
+        this.current = this.northcoders
+        this.convey.play();
+    }
 
-    console.log(this.ants)
-    
+    else if (this.current !== 'none') {
+        this.current.clear([this.current.getChildren()])
+        this.current = 'none'
+        // shake
+        this.cameras.main.flash(500, 0, 50, 50);
+        // play sound
+        this.convey.stop();
+        this.elec.play();
 
-  
+
+        setTimeout(() => {
+            if (this.flag === 'ants') {
+                this.placeAnts()
+            }
+            else if (this.flag === 'NC') {
+                this.placeNC()
+            }
+        }, 1000);
+    }
+
 }
 
 //set config
