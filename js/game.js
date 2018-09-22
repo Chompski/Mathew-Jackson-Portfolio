@@ -41,6 +41,7 @@ gameScene.create = function () {
     let bg = this.add.sprite(0, 0, 'bg')
     //change origin to top left corner
     bg.setOrigin(0, 0)
+    bg.setScale(2.25)
 
     //create science dude
     this.science = this.add.sprite(210, 180, 'Science', 0);
