@@ -21,12 +21,10 @@ gameScene.preload = function () {
     this.load.audio('machoff', 'assets/audio/MachineOff.mp3');
 
     // load spritesheets
-    this.load.spritesheet('ScienceBut', 'assets/animations/PortScienceGuybutton.png', {
+    this.load.spritesheet('Science', 'assets/animations/PortScienceGuy.png', {
         frameWidth: 42,
         frameHeight: 32,
     });
-
-
 
 }
 
@@ -45,7 +43,7 @@ gameScene.create = function () {
     bg.setOrigin(0, 0)
 
     //create science dude
-    this.science = this.add.sprite(210, 180, 'ScienceBut', 0);
+    this.science = this.add.sprite(210, 180, 'Science', 0);
     this.science.setScale(4.5)
 
     // create the flag
@@ -63,8 +61,17 @@ gameScene.create = function () {
     // create animation
     this.anims.create({
         key: 'button',
-        frames: this.anims.generateFrameNames('ScienceBut', {
-            frames: [0, 1, 2, 3, 4, 5, 6]
+        frames: this.anims.generateFrameNames('Science', {
+            frames: [4, 5, 6, 7, 8, 9, 10]
+        }),
+        frameRate: 12,
+        yoyo: true,
+    });
+
+    this.anims.create({
+        key: 'lever',
+        frames: this.anims.generateFrameNames('Science', {
+            frames: [0, 1, 2, 3]
         }),
         frameRate: 12,
         yoyo: true,
@@ -91,6 +98,7 @@ gameScene.update = function () {
 
 gameScene.placeAnts = function (pointer, localX, localY) {
     this.flag = 'ants'
+
     gameScene.placeObjects()
 }
 
@@ -100,7 +108,11 @@ gameScene.placeNC = function (pointer, localX, localY) {
 }
 
 gameScene.placeObjects = function (pointer, localX, localY) {
+    if(this.current === 'none') {
+    this.science.anims.play('lever');
+    }
 
+setTimeout(() => {
     // create a new item in position
     if (this.flag === 'ants' && this.current === 'none') {
         this.antdentifier = this.add.group([
@@ -126,6 +138,7 @@ gameScene.placeObjects = function (pointer, localX, localY) {
     }
 
     else if (this.flag === 'NC' && this.current === 'none') {
+        
         this.northcoders = this.add.group([
             {
                 key: 'player',
@@ -144,6 +157,7 @@ gameScene.placeObjects = function (pointer, localX, localY) {
                 }
             }
         ]);
+        
         this.current = this.northcoders
         this.convey.play();
     }
@@ -170,11 +184,11 @@ gameScene.placeObjects = function (pointer, localX, localY) {
                 else if (this.flag === 'NC') {
                     this.placeNC()
                 }
-            }, 1000);
-        }, 800);
+            }, 800);
+        }, 600);
 
     }
-
+}, 200);
 }
 
 //set config
