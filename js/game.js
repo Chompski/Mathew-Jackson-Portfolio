@@ -20,20 +20,33 @@ gameScene.preload = function () {
     this.load.audio('convey', 'assets/audio/convey.mp3');
     this.load.audio('machoff', 'assets/audio/MachineOff.mp3');
 
+    // load spritesheets
+    this.load.spritesheet('ScienceBut', 'assets/animations/PortScienceGuybutton.png', {
+        frameWidth: 42,
+        frameHeight: 32,
+    });
+
 
 
 }
 
 //called once after preload
 gameScene.create = function () {
+    // create sounds
     this.elec = this.sound.add('elec');
     this.convey = this.sound.add('convey');
     this.machoff = this.sound.add('machoff');
+
+
 
     //create bg sprite
     let bg = this.add.sprite(0, 0, 'bg')
     //change origin to top left corner
     bg.setOrigin(0, 0)
+
+    //create science dude
+    this.science = this.add.sprite(210, 180, 'ScienceBut', 0);
+    this.science.setScale(4.5)
 
     // create the flag
     let antFlag = this.add.sprite(600, 180, 'player').setInteractive();
@@ -46,6 +59,16 @@ gameScene.create = function () {
     ncFlag.setScale(1)
     // event listener for flag
     ncFlag.on('pointerdown', this.placeNC, this);
+
+    // create animation
+    this.anims.create({
+        key: 'button',
+        frames: this.anims.generateFrameNames('ScienceBut', {
+            frames: [0, 1, 2, 3, 4, 5, 6]
+        }),
+        frameRate: 12,
+        yoyo: true,
+    });
 
 
 }
@@ -126,23 +149,30 @@ gameScene.placeObjects = function (pointer, localX, localY) {
     }
 
     else if (this.current !== 'none') {
-        this.current.clear([this.current.getChildren()])
-        this.current = 'none'
-        // shake
-        this.cameras.main.flash(500, 0, 50, 50);
-        // play sound
-        this.convey.stop();
-        this.elec.play();
-
+        // play animation
+        this.science.anims.play('button');
 
         setTimeout(() => {
-            if (this.flag === 'ants') {
-                this.placeAnts()
-            }
-            else if (this.flag === 'NC') {
-                this.placeNC()
-            }
-        }, 1000);
+            this.current.clear([this.current.getChildren()])
+            this.current = 'none'
+            // shake
+            this.cameras.main.flash(500, 0, 50, 50);
+
+            // play sound
+            this.convey.stop();
+            this.elec.play();
+
+
+            setTimeout(() => {
+                if (this.flag === 'ants') {
+                    this.placeAnts()
+                }
+                else if (this.flag === 'NC') {
+                    this.placeNC()
+                }
+            }, 1000);
+        }, 800);
+
     }
 
 }
@@ -152,6 +182,8 @@ let config = {
     type: Phaser.AUTO,
     width: 1800,
     height: 1080,
+    pixelArt: true,
+    zoom: 1,
     scene: gameScene,
     parent: 'phaser'
 
