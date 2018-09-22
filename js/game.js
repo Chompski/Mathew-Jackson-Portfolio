@@ -18,7 +18,7 @@ gameScene.preload = function () {
     // load audio
     this.load.audio('elec', 'assets/audio/Electricity.mp3');
     this.load.audio('convey', 'assets/audio/convey.mp3');
-    this.load.audio('machoff', 'assets/audio/MachineOff.mp3');
+    this.load.audio('BGmusic', 'assets/audio/BGmusic.mp3');
 
     // load spritesheets
     this.load.spritesheet('Science', 'assets/animations/PortScienceGuy.png', {
@@ -36,11 +36,10 @@ gameScene.preload = function () {
 //called once after preload
 gameScene.create = function () {
     // create sounds
-    this.elec = this.sound.add('elec');
-    this.convey = this.sound.add('convey');
-    this.machoff = this.sound.add('machoff');
-
-
+    this.elec = this.sound.add('elec', {volume:0.6});
+    this.convey = this.sound.add('convey', {volume:0.4});
+    //BG music
+    this.BGmusic = this.sound.add('BGmusic', {volume:0.1,loop:true});
 
     //create bg sprite
     let bg = this.add.sprite(0, 0, 'bg')
@@ -90,25 +89,26 @@ gameScene.create = function () {
         }),
         frameRate: 6,
         yoyo: true,
-        repeat:-1,
+        repeat: -1,
     });
 
     //listen to pointerover
     antFlag.on('pointerover', function (pointer) {
         antFlag.anims.play('antFlag');
-          })
-  
-      antFlag.on('pointerout', function (pointer) {
+    })
+
+    antFlag.on('pointerout', function (pointer) {
         antFlag.anims.stop('antFlag');
-      }, this);
+    }, this);
 
-    
 
+    this.BGmusic.play();
 
 }
 
 // this is called up to 60 times per second
 gameScene.update = function () {
+  
     // make group move
     if (this.current !== 'none') {
         for (let i = 0; i < this.current.getChildren().length; i++) {
