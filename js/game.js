@@ -20,13 +20,17 @@ gameScene.preload = function () {
     this.load.audio('convey', 'assets/audio/convey.mp3');
     this.load.audio('BGmusic', 'assets/audio/BGmusic.mp3');
 
-    // load spritesheets
+    // load scientist spritesheet
     this.load.spritesheet('Science', 'assets/animations/PortScienceGuy.png', {
         frameWidth: 42,
         frameHeight: 32,
     });
-
+    // load flag sheets
     this.load.spritesheet('antFlag', 'assets/animations/antdentifier.png', {
+        frameWidth: 32,
+        frameHeight: 64,
+    });
+    this.load.spritesheet('ncFlag', 'assets/animations/Nnews.png', {
         frameWidth: 32,
         frameHeight: 64,
     });
@@ -51,19 +55,19 @@ gameScene.create = function () {
     this.science = this.add.sprite(210, 180, 'Science', 0);
     this.science.setScale(4.5)
 
-    // create the flag
+    // create the flags
     let antFlag = this.add.sprite(578, 160, 'antFlag', 0).setInteractive();
     antFlag.setScale(4)
     // event listener for flag
     antFlag.on('pointerdown', this.placeAnts, this);
 
     // create the flag
-    let ncFlag = this.add.sprite(800, 180, 'player').setInteractive();
-    ncFlag.setScale(1)
+    let ncFlag = this.add.sprite(740, 160, 'ncFlag').setInteractive();
+    ncFlag.setScale(4)
     // event listener for flag
     ncFlag.on('pointerdown', this.placeNC, this);
 
-    // create animation
+    // create scientist animation
     this.anims.create({
         key: 'button',
         frames: this.anims.generateFrameNames('Science', {
@@ -82,6 +86,7 @@ gameScene.create = function () {
         yoyo: true,
     });
 
+    // flag animations
     this.anims.create({
         key: 'antFlag',
         frames: this.anims.generateFrameNames('antFlag', {
@@ -92,16 +97,32 @@ gameScene.create = function () {
         repeat: -1,
     });
 
+    this.anims.create({
+        key: 'ncFlag',
+        frames: this.anims.generateFrameNames('ncFlag', {
+            frames: [0, 1, 2, 3, 4]
+        }),
+        frameRate: 6,
+        yoyo: true,
+        repeat: -1,
+    });
+
     //listen to pointerover
     antFlag.on('pointerover', function (pointer) {
         antFlag.anims.play('antFlag');
     })
-
     antFlag.on('pointerout', function (pointer) {
         antFlag.anims.stop('antFlag');
     }, this);
 
+    ncFlag.on('pointerover', function (pointer) {
+        ncFlag.anims.play('ncFlag');
+    })
+    ncFlag.on('pointerout', function (pointer) {
+        ncFlag.anims.stop('ncFlag');
+    }, this);
 
+    // play game music
     this.BGmusic.play();
 
 }
