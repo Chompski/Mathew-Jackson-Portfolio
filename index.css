@@ -2,13 +2,22 @@ body {
     background-image: url("background.png");
 }
 
+.links {
+    width: 3rem;
+    float: right;
+    margin: 0.2rem;
+}
 
 .header {
     background-image: url("background.png");
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.header-title {
+    width: 60rem;
 }
 
 .main {
