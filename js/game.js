@@ -14,7 +14,6 @@ gameScene.preload = function () {
     this.load.image('player', 'assets/player.png');
     this.load.image('antFS', 'assets/AntdentifierFS.png');
     this.load.image('antPhone', 'assets/antPhone.png');
-
     // load audio
     this.load.audio('elec', 'assets/audio/Electricity.mp3');
     this.load.audio('convey', 'assets/audio/convey.mp3');
@@ -40,10 +39,10 @@ gameScene.preload = function () {
 //called once after preload
 gameScene.create = function () {
     // create sounds
-    this.elec = this.sound.add('elec', {volume:0.4});
-    this.convey = this.sound.add('convey', {volume:0.2});
+    this.elec = this.sound.add('elec', { volume: 0.4 });
+    this.convey = this.sound.add('convey', { volume: 0.2 });
     //BG music
-    this.BGmusic = this.sound.add('BGmusic', {volume:0.1,loop:true});
+    this.BGmusic = this.sound.add('BGmusic', { volume: 0.1, loop: true });
 
     //create bg sprite
     let bg = this.add.sprite(0, 0, 'bg')
@@ -76,7 +75,6 @@ gameScene.create = function () {
         frameRate: 12,
         yoyo: true,
     });
-
     this.anims.create({
         key: 'lever',
         frames: this.anims.generateFrameNames('Science', {
@@ -96,7 +94,6 @@ gameScene.create = function () {
         yoyo: true,
         repeat: -1,
     });
-
     this.anims.create({
         key: 'ncFlag',
         frames: this.anims.generateFrameNames('ncFlag', {
@@ -129,12 +126,12 @@ gameScene.create = function () {
 
 // this is called up to 60 times per second
 gameScene.update = function () {
-  
+
     // make group move
     if (this.current !== 'none') {
         for (let i = 0; i < this.current.getChildren().length; i++) {
-            if (this.current.getChildren()[1].x < this.sys.game.config.width - 400) {
-                this.current.getChildren()[i].x += 5;
+            if (this.current.getChildren()[1].x < this.sys.game.config.width - 250) {
+                this.current.getChildren()[i].x += 8;
             }
             else {
                 this.convey.stop();
@@ -142,17 +139,16 @@ gameScene.update = function () {
         }
     };
 };
-
+// The banner object functions
 gameScene.placeAnts = function (pointer, localX, localY) {
     this.flag = 'ants'
     gameScene.placeObjects()
 }
-
 gameScene.placeNC = function (pointer, localX, localY) {
     this.flag = 'NC'
     gameScene.placeObjects()
 }
-
+// The place objects function
 gameScene.placeObjects = function (pointer, localX, localY) {
     if (this.current === 'none') {
         this.science.anims.play('lever');
@@ -166,20 +162,23 @@ gameScene.placeObjects = function (pointer, localX, localY) {
                     key: 'antFS',
                     setXY:
                     {
-                        x: -600,
-                        y: 850
+                        x: -700,
+                        y: 720
                     }
                 },
                 {
                     key: 'antPhone',
                     setXY:
                     {
-                        x: -100,
-                        y: 850
+                        x: -50,
+                        y: 730
                     }
                 }
             ]);
+
             this.current = this.antdentifier
+            this.current.getChildren()[0].setScale(0.55)
+            this.current.getChildren()[1].setScale(0.5)
             this.convey.play();
         }
 
@@ -215,13 +214,12 @@ gameScene.placeObjects = function (pointer, localX, localY) {
             setTimeout(() => {
                 this.current.clear([this.current.getChildren()])
                 this.current = 'none'
-                // shake
+                // Camera flash
                 this.cameras.main.flash(500, 0, 50, 50);
 
                 // play sound
                 this.convey.stop();
                 this.elec.play();
-
 
                 setTimeout(() => {
                     if (this.flag === 'ants') {
@@ -232,7 +230,6 @@ gameScene.placeObjects = function (pointer, localX, localY) {
                     }
                 }, 800);
             }, 600);
-
         }
     }, 200);
 }
