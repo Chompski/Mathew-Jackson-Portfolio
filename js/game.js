@@ -11,9 +11,10 @@ gameScene.init = function () {
 gameScene.preload = function () {
     // load images
     this.load.image('bg', 'assets/portBG.png');
-    this.load.image('player', 'assets/player.png');
     this.load.image('antFS', 'assets/AntdentifierFS.png');
-    this.load.image('antPhone', 'assets/antPhone.png');
+    this.load.image('antPhone', 'assets/AntPhone.png');
+    this.load.image('NcNewsFS', 'assets/NcNewsFS.png');
+    this.load.image('NcNewsPhone', 'assets/NcNewsPhone.png');
     // load audio
     this.load.audio('elec', 'assets/audio/Electricity.mp3');
     this.load.audio('convey', 'assets/audio/convey.mp3');
@@ -130,7 +131,7 @@ gameScene.update = function () {
     // make group move
     if (this.current !== 'none') {
         for (let i = 0; i < this.current.getChildren().length; i++) {
-            if (this.current.getChildren()[1].x < this.sys.game.config.width - 250) {
+            if (this.current.getChildren()[1].x < this.sys.game.config.width - 300) {
                 this.current.getChildren()[i].x += 8;
             }
             else {
@@ -162,8 +163,8 @@ gameScene.placeObjects = function (pointer, localX, localY) {
                     key: 'antFS',
                     setXY:
                     {
-                        x: -700,
-                        y: 720
+                        x: -800,
+                        y: 735
                     }
                 },
                 {
@@ -177,8 +178,8 @@ gameScene.placeObjects = function (pointer, localX, localY) {
             ]);
 
             this.current = this.antdentifier
-            this.current.getChildren()[0].setScale(0.55)
-            this.current.getChildren()[1].setScale(0.5)
+            this.current.getChildren()[0].setScale(0.52)
+            this.current.getChildren()[1].setScale(0.55)
             this.convey.play();
         }
 
@@ -186,24 +187,26 @@ gameScene.placeObjects = function (pointer, localX, localY) {
 
             this.northcoders = this.add.group([
                 {
-                    key: 'player',
+                    key: 'NcNewsFS',
                     setXY:
                     {
-                        x: -600,
-                        y: 850
+                        x: -800,
+                        y: 735
                     }
                 },
                 {
-                    key: 'player',
+                    key: 'NcNewsPhone',
                     setXY:
                     {
-                        x: -100,
-                        y: 850
+                        x: -50,
+                        y: 730
                     }
                 }
             ]);
 
             this.current = this.northcoders
+            this.current.getChildren()[0].setScale(0.52)
+            this.current.getChildren()[1].setScale(0.55)
             this.convey.play();
         }
 
