@@ -2,34 +2,10 @@ body {
     background-image: url("background.png");
 }
 
-
-
-.Header-Buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-
-}
-
 .links {
-    max-width: 40%;
-    height: auto;
-    margin: 3px;
+    max-width: 4%;
+    margin: 1%
 }
-
-.header-title {
-    width: 90%;
-}
-
-.Header-Name {
-    background-image: url("background.png");
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 
 .main {
     background-image: url("background.png");
@@ -86,9 +62,11 @@ canvas {
     height: 100%;
   }
 
-  @media screen and (max-width: 600px){
+  @media screen and (max-width: 400px){
     canvas {
         width: 100%;
-       
       }
+      .links {
+        max-width: 10%;
+    }
   }
