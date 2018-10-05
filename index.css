@@ -2,25 +2,27 @@ body {
     background-image: url("background.png");
 }
 
-.links {
-    width: 3rem;
-    float: right;
-    margin: 0.2rem;
-}
 
-.header {
-    background-image: url("background.png");
+
+.Header-Buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+
+}
+
+.links {
+    max-width: 40%;
+    height: auto;
+    margin: 3px;
 }
 
 .header-title {
-    width: 100rem;
+    width: 90%;
 }
 
-.header-name {
+.Header-Name {
     background-image: url("background.png");
     display: flex;
     flex-direction: column;
