@@ -5,29 +5,38 @@
   <meta charset="UTF-8" />
   <title>Mathew Jackson Portfolio</title>
   <link rel="stylesheet" type="text/css" href="index.css">
-  <div class="header">
-    <img src="header.png" class="header-title" />
-    <div>
-      <a href="https://www.linkedin.com/in/mathew-jackson-b051a016b/">
-        <img src="linkedin-button-logo.png" class="links" />
-      </a>
-      <a href="https://www.linkedin.com/in/mathew-jackson-b051a016b/">
-        <img src="linkedin-button-logo.png" class="links" />
-      </a>
-    </div>
+ <div class="header-name"/>
+ <img src="MJ.png" class="header-title" />
+ <img src="header.png" class="header-title" />
+ <div class="header">
+    <a href="https://www.linkedin.com/in/mathew-jackson-b051a016b/" target="_blank">
+      <img src="linkedin-button-logo.png" class="links" />
+    </a>
+    <a href="https://github.com/Chompski" target="_blank">
+      <img src="github.png" class="links" />
+    </a>
   </div>
+</div>
+ 
 </head>
 
 <body>
+  <script src="js/hideAnt.js"></script>
+  <script src="js/ScrollToBottom.js"></script>
   <script src="js/phaser.js"></script>
   <script src="js/game.js"></script>
   <div class="main" align="center">
     <div id="phaser"></div>
   </div>
-  <div class="info">
+ <!-- Info displays -->
+  <div class="info" id="antDiv">
     <p>frontend work</p>
     <img src="AntdentifierFS.png" class="infopic" />
   </div>
+<!-- Buttons -->
+  <div>
+      <img onclick="hideAnt()" src="linkedin-button-logo.png"/>
+    </div>
 </body>
 
 </html>
