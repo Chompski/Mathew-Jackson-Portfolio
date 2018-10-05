@@ -17,7 +17,7 @@ body {
 }
 
 .header-title {
-    width: 60rem;
+    width: 100rem;
 }
 
 .header-name {
@@ -37,16 +37,50 @@ body {
     justify-content: center;
 }
 
-.info {
-    display: none;
-    background-image: url("backgroundDiv.png");
-}
 .infopic {
     width: 40rem;
 }
 
+.Ant-Banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url("background2.png");
+}
+
+.Ant-Banner-Title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.antDiv {
+    display: none;
+    background-image: url("background2.png");
+}
+
+.NC-Banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+}
+
+.NC-Banner-Title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.NCDiv {
+    display: none;
+    background-color: white;
+}
+
 canvas {
-    width: 100%;
+    width: 95%;
     height: 100%;
   }
 

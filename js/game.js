@@ -241,7 +241,7 @@ gameScene.placeObjects = function (pointer, localX, localY) {
 let config = {
     type: Phaser.AUTO,
     width: 1800,
-    height: 1080,
+    height: 1040,
     pixelArt: true,
     zoom: 1,
     scene: gameScene,

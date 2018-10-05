@@ -5,10 +5,11 @@
   <meta charset="UTF-8" />
   <title>Mathew Jackson Portfolio</title>
   <link rel="stylesheet" type="text/css" href="index.css">
- <div class="header-name"/>
- <img src="MJ.png" class="header-title" />
- <img src="header.png" class="header-title" />
- <div class="header">
+  <div class="header-name" />
+
+  <img src="MJ.png" class="header-title" />
+
+  <div class="header">
     <a href="https://www.linkedin.com/in/mathew-jackson-b051a016b/" target="_blank">
       <img src="linkedin-button-logo.png" class="links" />
     </a>
@@ -16,27 +17,45 @@
       <img src="github.png" class="links" />
     </a>
   </div>
-</div>
- 
+  </div>
+
 </head>
 
 <body>
-  <script src="js/hideAnt.js"></script>
+  <script src="js/hide.js"></script>
   <script src="js/ScrollToBottom.js"></script>
   <script src="js/phaser.js"></script>
   <script src="js/game.js"></script>
   <div class="main" align="center">
     <div id="phaser"></div>
   </div>
- <!-- Info displays -->
-  <div class="info" id="antDiv">
+  <!-- Banner Button-->
+  <div class="Ant-Banner" onclick="hide('antDiv')">
+    <div class="Ant-Banner-Title">
+    <img  src="ant head.gif" />
+  </div>
+  <!-- Info display -->
+  <div class="antDiv" id="antDiv" style="display:none">
     <p>frontend work</p>
     <img src="AntdentifierFS.png" class="infopic" />
   </div>
-<!-- Buttons -->
-  <div>
-      <img onclick="hideAnt()" src="linkedin-button-logo.png"/>
+</div>
+
+  <!-- Banner Button-->
+  <div class="NC-Banner" onclick="hide('NCDiv')">
+    <div class="NC-Banner-Title">
+    <img src="ant head.gif" />
     </div>
+ 
+  <!-- Info display -->
+  <div class="NCDiv" id="NCDiv" style="display:none">
+    <p>frontend work</p>
+    <img src="AntdentifierFS.png" class="infopic" />
+  </div>
+</div>
+
+
+
 </body>
 
 </html>

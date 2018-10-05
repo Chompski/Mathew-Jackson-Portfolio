@@ -1,5 +1,5 @@
-function hideAnt() {
-    var x = document.getElementById("antDiv");
+function hide(DIV) {
+    var x = document.getElementById(DIV);
     if (x.style.display === "none") {
         x.style.display = "block";
         window.scrollTo(0,document.body.scrollHeight);
