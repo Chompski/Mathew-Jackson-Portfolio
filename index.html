@@ -1,43 +1,52 @@
 <!doctype html>
 <html lang="en">
 
-<head>
+<head align="center">
   <meta charset="UTF-8" />
   <title>Mathew Jackson Portfolio</title>
   <link rel="stylesheet" type="text/css" href="index.css">
-
-  <div align="center">
-    <a href="https://www.linkedin.com/in/mathew-jackson-b051a016b/" target="_blank">
-      <img src="linkedin-button-logo.png" class="links" />
-    </a>
-    <a href="https://github.com/Chompski" target="_blank">
-      <img src="github.png" class="links" />
-    </a>
-  </div>
-
-  <div align="center" />
-  <img src="MJ.png" width="95%"/>
-  </div>
-
-</head>
-
-<body>
   <script src="js/hide.js"></script>
   <script src="js/ScrollToBottom.js"></script>
   <script src="js/phaser.js"></script>
   <script src="js/game.js"></script>
+
+  <div class="Intro">
+    <div class="LinkList" align="center">
+      <a href="https://www.linkedin.com/in/mathew-jackson-b051a016b/" target="_blank">
+        <img src="Images/linkedin-button-logo.png" class="links" />
+      </a>
+      <a href="https://github.com/Chompski" target="_blank">
+        <img src="Images/github.png" class="links" />
+      </a>
+    </div>
+    <div class="Intro-Text">
+      <h2>Front-end / HTML Games Development & Design</h2>
+      <h3>Im Mathew Jackson, a Front-end developer who is creative, passionate and eager to learn. </h3>
+    </div>
+  </div>
+</head>
+
+<body>
+
   <div class="main" align="center">
     <div id="phaser"></div>
   </div>
+
   <!-- Banner Button-->
   <div class="Ant-Banner" onclick="hide('antDiv')">
     <div class="Ant-Banner-Title">
-      <img src="ant head.gif" />
+      <img src="Images/AntTitle.png" width="100%" />
+      <img src="Images/ant head.gif" />
     </div>
     <!-- Info display -->
     <div class="antDiv" id="antDiv" style="display:none">
-      <p>frontend work</p>
-      <img src="AntdentifierFS.png" class="infopic" />
+
+      <div class="Ant-Desc">
+        <p>The front-end for Antdentifier which is an app for hobbyist ant keepers, the main goal for the app is to
+          help them identify and care for a multitude of ant species.</p>
+        <img src="Images/antdentifierex.png" class="infopic" />
+      </div>
+
     </div>
   </div>
 

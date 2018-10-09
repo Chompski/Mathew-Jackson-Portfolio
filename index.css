@@ -1,5 +1,37 @@
 body {
-    background-image: url("background.png");
+    background-image: url("Images/background.png");
+}
+
+h2 {
+    margin: 1rem;
+}
+
+h3 {
+    margin: 1rem;
+}
+p {
+    margin: 1rem;
+}
+
+img {
+    margin: 0.3rem;
+}
+
+.Intro {
+    margin: 1.5rem;
+}
+
+.Intro-Text {
+    color: black;
+    padding: 2px;
+    border-radius: 20px;
+    border: 0.3rem;
+    border-style:groove;
+    border-color: black;
+    /* box-shadow: 5px 10px; */
+    background-image: url("Images/BG2.png")
+    /* background-color: dimgray; */
+
 }
 
 .links {
@@ -7,8 +39,11 @@ body {
     margin: 0.2%
 }
 
+.LinkList {
+    max-width: 95%;
+}
+
 .main {
-    background-image: url("background.png");
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -16,14 +51,22 @@ body {
 }
 
 .infopic {
-    width: 40rem;
+    width: 100%;
+    border: 0.2rem;
+    border-style:solid;
+    border-color: black;
 }
 
 .Ant-Banner {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url("background2.png");
+    align-items: center;
+    margin: 1rem;
+    border: 0.4rem;
+    border-style: groove;
+    border-color: black;
+    background-image: url("Images/background2.png");
 }
 
 .Ant-Banner-Title {
@@ -34,8 +77,24 @@ body {
 }
 
 .antDiv {
+    display: flex;
+    flex-direction: row;
     display: none;
-    background-image: url("background2.png");
+    background-image: url("Images/background2.png");
+}
+
+.Ant-Desc {
+    display: flex;
+    flex-direction: row;
+    margin: 3rem;
+    padding: 2px;
+    border-radius: 20px;
+    font-size: 100%;
+    background-color: rgb(129, 91, 52);
+    border: 0.2rem;
+    border-style:solid;
+    border-color: black;
+    box-shadow: 5px 10px;
 }
 
 .NC-Banner {
@@ -58,7 +117,7 @@ body {
 }
 
 canvas {
-    width: 95%;
+    width: 100%;
     height: 100%;
   }
 
