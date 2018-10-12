@@ -11,7 +11,7 @@ h3 {
 }
 p {
     margin: 1rem;
-    padding: 4rem;
+    padding: 2rem;
 }
 
 img {
@@ -99,7 +99,7 @@ img {
     align-items: center;
     justify-content: center;
     margin: 3rem;
-    padding: 2%;
+    padding: 1%;
     border-radius: 20px;
     font-size: 160%;
     background-color: rgb(129, 91, 52);
