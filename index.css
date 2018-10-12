@@ -1,5 +1,7 @@
 body {
     background-image: url("Images/background.png");
+    padding-left: 8rem;
+    padding-right: 8rem;
 }
 
 h2 {
@@ -25,7 +27,7 @@ img {
 .Intro-Text {
     color: black;
     padding: 2px;
-    font-size: 130%;
+    font-size: 140%;
     border-radius: 20px;
     border: 0.3rem;
     border-style:groove;
@@ -129,7 +131,7 @@ img {
 }
 
 canvas {
-    width: 90%;
+    width: 97%;
     margin: 1rem;
   }
 
@@ -139,6 +141,9 @@ canvas {
       }
       .links {
         max-width: 10%;
+    }
+    .Intro-Text {
+        font-size: 100%;
     }
     .Ant-Desc {
         font-size: 100%;
@@ -158,5 +163,12 @@ canvas {
     img {
         width: 120%;
         margin: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 800px){ 
+    body {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
     }
   }
