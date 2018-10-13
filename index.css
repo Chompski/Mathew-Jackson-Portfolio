@@ -40,15 +40,13 @@ img {
 .Intro-Text {
     color: black;
     padding: 2px;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     border-radius: 20px;
     border: 0.3rem;
     border-style:groove;
     border-color: black;
     box-shadow: 5px 10px;
     background-image: url("Images/BG2.png");
-    
-    /* background-color: dimgray; */
 }
 
 .Intro-Logos {
