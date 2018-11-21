@@ -1,8 +1,14 @@
 
 @font-face {
-    font-family: 'fun';
+    /* font-family: 'fun';
     src: url('Fonts/akadylan_open-webfont.woff2') format('woff2'),
          url('Fonts/akadylan_open-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal; */
+
+    font-family: 'ket';
+    src: url('Fonts/ketch___-webfont.woff2') format('woff2'),
+         url('Fonts/ketch___-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -16,17 +22,17 @@ body {
 
 h2 {
     margin: 0.5rem;
-    font-family: 'fun';
+    font-family: 'ket';
 }
 
 h3 {
     margin: 0.5rem;
-    font-family: 'fun';
+    font-family: 'ket';
 }
 p {
     margin: 1rem;
     padding: 2rem;
-    font-family: 'fantasy';
+    font-family: 'ket';
 }
 
 img {
@@ -40,13 +46,14 @@ img {
 .Intro-Text {
     color: black;
     padding: 2px;
-    font-size: 1.4rem;
+    font-size: 2rem;
     border-radius: 20px;
     border: 0.3rem;
     border-style:groove;
     border-color: black;
     box-shadow: 5px 10px;
     background-image: url("Images/BG2.png");
+    text-align: center;
 }
 
 .Intro-Logos {
@@ -62,6 +69,8 @@ img {
 }
 
 .LinkList {
+    display: flex;
+    flex-direction: row;
     max-width: 95%;
 }
 
@@ -80,12 +89,18 @@ img {
     border-color: black;
 }
 
+.infopic2 {
+    width: 90%;
+    border: 0.2rem;
+    margin: 2%;
+}
+
 .infopicNC {
     width: 90%;
     border: 0.2rem;
     margin: 2%;
     border-style:solid;
-    border-color: rgb(255, 0, 0);
+    border-color: rgb(255, 255, 255);
 }
 
 .Ant-Banner {
@@ -97,7 +112,6 @@ img {
     border: 0.4rem;
     border-style: groove;
     border-color: black;
-    /* box-shadow: 5px 10px; */
     background-image: url("Images/background2.png");
 }
 
@@ -113,6 +127,8 @@ img {
     flex-direction: row;
     display: none;
     background-image: url("Images/background2.png");
+    align-items: center;
+    justify-content: center;
 }
 
 .Ant-Desc {
@@ -120,15 +136,19 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 3rem;
+    margin: 0.5rem;
+    margin-top: -0.5rem;
     padding: 1%;
     border-radius: 20px;
-    font-size: 160%;
-    background-color: rgb(129, 91, 52);
-    border: 0.2rem;
-    border-style:solid;
-    border-color: black;
-    box-shadow: 5px 10px;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.Ant-Desc-Inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .NC-Banner {
@@ -139,7 +159,6 @@ img {
     margin: 1rem;
     border: 0.4rem;
     border-style: groove;
-    /* border-color: rgb(105, 105, 105); */
 }
 
 .NC-Banner-Title {
@@ -159,15 +178,15 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 3rem;
-    padding: 1%;
-    border-radius: 20px;
-    font-size: 160%;
     color: white;
     background-color: rgb(0, 0, 0);
-    border: 0.2rem;
-    border-style:solid;
-    border-color: rgb(0, 0, 0);
+    margin: 0.5rem;
+    margin-top: -0.5rem;
+    padding: 1%;
+    border-radius: 20px;
+    font-size: 3rem;
+    text-align: center;
+   
 }
 
 canvas {
@@ -177,9 +196,10 @@ canvas {
 
   @media screen and (max-width: 400px){
     canvas {
+        display: none;
         width: 100%;
       }
-      .links {
+    .links {
         max-width: 20%;
     }
     .Intro-Text {
@@ -190,12 +210,22 @@ canvas {
         margin: 0.5rem;
         padding: 0.5rem;
     }
+    .NC-Desc {
+        font-size: 100%;
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+
     .Ant-Banner-Head {
         width: 30%
     }
     .infopic {
         width: 90%;
     }
+    .Ant-Desc-Inner {
+        flex-direction: column;
+    }
+   
     p {
         margin: 0.5rem;
         padding: 0.5rem;
