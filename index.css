@@ -173,9 +173,8 @@ p {
     justify-content: center;
     align-items: center;
     margin: 1rem;
-    border: 0.4rem;
+    border: 0.6rem;
     border-style: groove;
-    border-color: black;
     background-image: url("Images/background2.png");
 }
 
@@ -220,7 +219,7 @@ p {
     justify-content: center;
     background-color:black;
     margin: 1rem;
-    border: 0.4rem;
+    border: 0.6rem;
     border-style: groove;
 }
 
@@ -255,7 +254,6 @@ p {
     border-radius: 20px;
     font-size: 2rem;
     text-align: center;
-   
 }
 
 canvas {
