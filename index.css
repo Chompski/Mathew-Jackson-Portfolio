@@ -121,6 +121,10 @@ img {
     justify-content: center;
 }
 
+.Intro-Logos2 {
+    width: 20rem;
+}
+
 .links {
     max-width: 5rem;
     margin: 1rem;
@@ -255,7 +259,7 @@ canvas {
     margin: 1rem;
   }
 
-  @media screen and (max-width: 500px){
+  @media only screen and (max-width: 500px){
 
     canvas {
         display: none;
