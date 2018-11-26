@@ -104,7 +104,7 @@ img {
 .Intro-Text {
     color: black;
     padding: 2px;
-    font-size: 1.5rem;
+    font-size: 2rem;
     border-radius: 20px;
     border: 0.3rem;
     border-style:groove;
@@ -136,7 +136,7 @@ img {
 .LinkList {
     display: flex;
     flex-direction: row;
-    max-width: 95%;
+    max-width: 15rem;
 }
 
 .main {
@@ -147,7 +147,7 @@ img {
 }
 
 .infopic {
-    width: 90%;
+    width: 60rem;
     border: 0.3rem;
     margin: 2%;
     border-style:solid;
@@ -155,13 +155,13 @@ img {
 }
 
 .infopic2 {
-    width: 90%;
+    width: 55rem;
     border: 0.2rem;
     margin: 2%;
 }
 
 .infopicNC {
-    width: 90%;
+    width: 60rem;
     border: 0.3rem;
     margin: 2%;
     border-style:solid;
@@ -205,8 +205,12 @@ img {
     margin-top: -0.5rem;
     padding: 1%;
     border-radius: 20px;
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-align: center;
+}
+
+.Ant-Banner-Image {
+    width: 30rem;
 }
 
 .Ant-Desc-Inner {
@@ -233,6 +237,10 @@ img {
     justify-content: center;
 }
 
+.NC-Banner-Image {
+    width: 30rem;
+}
+
 .NCDiv {
     display: none;
     background-color:black;
@@ -249,7 +257,7 @@ img {
     margin-top: -0.5rem;
     padding: 1%;
     border-radius: 20px;
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-align: center;
    
 }
@@ -259,22 +267,35 @@ canvas {
     margin: 1rem;
   }
 
-  @media only screen and (max-width: 500px){
+  @media screen and (max-width: 600px){
+    body {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
 
     canvas {
         display: none;
       }
+
     .links {
-        max-width: 60%;
+        margin: 0.4rem;
+        max-width: 2.5rem;
     }
+
     .Intro-Text {
-        font-size: 90%;
+        font-size: 95%;
     }
+
+    .Intro-Logos2 {
+        width: 20rem;
+    }
+    
     .Ant-Desc {
         font-size: 110%;
         margin: 0.5rem;
         padding: 0.5rem;
     }
+
     .NC-Desc {
         font-size: 110%;
         margin: 0.5rem;
@@ -284,9 +305,23 @@ canvas {
     .Ant-Banner-Head {
         width: 30%
     }
-    .infopic {
-        width: 90%;
+
+    .Ant-Banner-Image {
+        width: 18rem;
     }
+
+    .infopic {
+        width: 15rem;
+    }
+
+    .infopic2 {
+        width: 10rem;
+    }
+
+    .infopicNC {
+        width: 15rem;
+    }
+
     .Ant-Desc-Inner {
         flex-direction: column;
     }
@@ -295,13 +330,47 @@ canvas {
         margin: 0.5rem;
         padding: 0.5rem;
     }
-    img {
-        width: 120%;
-        margin: 1rem;
-    }
+
   }
 
-  @media screen and (max-width: 800px){ 
+  @media only screen and (max-width: 800px) and (min-width:601px){ 
+   
+    .Ant-Desc {
+        font-size: 110%;
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .NC-Desc {
+        font-size: 110%;
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .Ant-Banner-Head {
+        width: 30%
+    }
+
+    .Ant-Banner-Image {
+        width: 28rem;
+    }
+
+    .infopic {
+        width: 15rem;
+    }
+
+    .infopic2 {
+        width: 10rem;
+    }
+
+    .infopicNC {
+        width: 15rem;
+    }
+
+    .Ant-Desc-Inner {
+        flex-direction: column;
+    }
+
     body {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
