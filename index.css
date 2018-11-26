@@ -155,7 +155,7 @@ img {
 }
 
 .infopic2 {
-    width: 18rem;
+    width: 15rem;
     border: 0.2rem;
     margin: 2%;
 }
@@ -276,7 +276,7 @@ canvas {
     }
 
     .Intro-Text {
-        font-size: 95%;
+        font-size: 1.2rem;
     }
 
     .Intro-Logos2 {
@@ -284,19 +284,15 @@ canvas {
     }
     
     .Ant-Desc {
-        font-size: 110%;
+        font-size: 1rem;
         margin: 0.5rem;
         padding: 0.5rem;
     }
 
     .NC-Desc {
-        font-size: 110%;
+        font-size: 1rem;
         margin: 0.5rem;
         padding: 0.5rem;
-    }
-
-    .Ant-Banner-Head {
-        width: 30%
     }
 
     .Ant-Banner-Image {
@@ -304,11 +300,11 @@ canvas {
     }
 
     .infopic {
-        width: 14rem;
+        width: 15rem;
     }
 
     .infopic2 {
-        width: 10rem;
+        width: 8rem;
     }
 
     .infopicNC {
@@ -329,13 +325,13 @@ canvas {
   @media only screen and (max-width: 800px) and (min-width:601px){ 
    
     .Ant-Desc {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
         margin: 0.5rem;
         padding: 0.5rem;
     }
 
     .NC-Desc {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
         margin: 0.5rem;
         padding: 0.5rem;
     }
@@ -353,7 +349,7 @@ canvas {
     }
 
     .infopic2 {
-        width: 15rem;
+        width: 14rem;
     }
 
     .infopicNC {
