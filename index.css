@@ -129,13 +129,10 @@ p {
     margin: 0.5rem;
 }
 
-.SiteLinks {
-    width: 15rem;
-}
 .LinkList {
     display: flex;
     flex-direction: row;
-    max-width: 15rem;
+    /* max-width: 15rem; */
 }
 
 .main {
@@ -287,7 +284,7 @@ canvas {
     }
 
     .Intro-Logos2 {
-        max-width: 100%;
+        max-width: 60%;
         margin: 0rem;
     }
     
