@@ -1,10 +1,14 @@
 function hide(DIV) {
-    var x = document.getElementById(DIV);
-    if (x.style.display === "none") {
-        x.style.display = "block";
-        x.scrollIntoView();
-        // window.scrollTo(0,document.body.scrollHeight);
-    } else {
-        x.style.display = "none";
-    }
- }
+    let div = document.getElementById(DIV);
+    let frontEnd = 'closed'
+
+
+        if (div.style.display === "none") {
+        div.style.display = "block";
+        // div.scrollIntoView();
+        }
+       else if (div.id !== 'Front-End-Div') {
+         div.style.display = "none";
+        }
+    
+}
